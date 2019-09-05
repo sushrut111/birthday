@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title></title>
+	<style type="text/css">
+		body{
+			background-color: white;
+		}
+		body.loaded {
+			background-color: black;
+			-webkit-transition: all 3s ease-in-out;
+			-moz-transition: all 3s ease-in-out;
+			-o-transition: all 3s ease-in-out;
+			transition: all 3s ease-in-out;
+		}
+		.rotateimg180 {
+			-webkit-transform:rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-ms-transform: rotate(180deg);
+			-o-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+		.messageEnable {
+			-webkit-transition: -webkit-transform 2s ease-in-out;
+			-webkit-transform:translateX(-25%);
+		}
+		.messageshow {
+			color: white;
+			-webkit-transition: all 1s ease-in-out;
+			-moz-transition: all 1s ease-in-out;
+			-o-transition: all 1s ease-in-out;
+			transition: all 1s ease-in-out;
+		}
+		.messagehide {
+			color: black;
+			-webkit-transition: all 1s ease-in-out;
+			-moz-transition: all 1s ease-in-out;
+			-o-transition: all 1s ease-in-out;
+			transition: all 1s ease-in-out;
+		}
+
+	</style>
+</head>
+<body>
+	<audio class="audio" hidden>
+		<source src="hbd.mp3" type="audio/mpeg">
+		</audio>
+		<div class="container">
+			<div class="row lights">
+				<div class="col-md-2">
+					<img class="bulb1 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+				<div class="col-md-2">
+					<img class="bulb2 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+				<div class="col-md-2">
+					<img class="bulb3 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+				<div class="col-md-2">
+					<img class="bulb4 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+				<div class="col-md-2">
+					<img class="bulb5 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+				<div class="col-md-2">
+					<img class="bulb6 rotateimg180" src="white.png" height="100px;" width="100px;">
+				</div>
+			</div>
+			<br>
+			<div class="row pataka invisible">
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass1 invisible">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+				<div class="col-md-1 thispataka dummyclass">
+					<img src="garland.png" height="100px;" width="100px;">				
+				</div>
+
+			</div>
+			<br>
+			<div class="row cake invisible">
+				<div class="col-6 mx-auto text-center cakewrapper">
+					<img src="cake.png" class="thiscake" height="300px" width="300px">  
+				</div>
+				<div class="message"></div>
+			</div>
+			<nav class="navbar fixed-bottom">
+				<center></center>
+				<div class="text-center butcont">
+					<button class="btn btn-md btn-success enlight">Lights off!</button>
+				</div>
+				<center></center>
+
+			</nav>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+
+			colors = ['red.png','yellow.png','popti.png','orange.png','green.png','pink.png','blue.png'];
+
+			var step = 'dark';
+
+			messages = [
+				'Today might be an ordinary day for others',
+				'but for you',
+				'for me',
+				'this is a special day!',
+				'First of all',
+				'Many many happy returns of the day!!',
+				'May you achieve all the success you want',
+				'May you live till the end of this world',
+				'May you get all the happieness',
+				'And now',
+				'Thanks for being there in my life',
+				'Our friendship is very important for me',
+				'You are the most precious gem in my life',
+				'May our friendship stay forever!!',
+				'Happieeee birthdayyyyyyy!!!!!!'
+			];
+
+
+			function start_blink() {
+				var n = Math.floor((Math.random() * 100) + 1);
+				n = n%7;
+				for(i=1;i<7;i++){
+					bulbclass = '.bulb'+i;
+					ind = (n + i)%7;
+					$(bulbclass).attr("src", colors[ind]);
+				}
+
+			}
+			function animatePataka() {
+				patakas = $('.thispataka');
+				for (var i = patakas.length - 1; i >= 0; i--) {
+					if(patakas[i].classList.contains('invisible')){
+						patakas[i].classList.remove('invisible');
+					}
+					else{
+						patakas[i].classList.add('invisible');
+					}
+				}
+			}
+			function showbutton(){
+				$('button').show();
+
+			}
+			function changeCake() {
+				$('.thiscake').attr('src',"withcandle.png");
+				showbutton();
+			}
+			function blinkCakeUtil() {
+				curr = $('.thiscake').attr('src');
+				if(curr == 'withcandle.png'){
+					newi = 'nocandle.png';
+				}
+				else{
+					newi = 'withcandle.png';
+				}
+
+				$('.thiscake').attr('src',newi);
+			}
+			function blinkCake() {
+				setInterval(blinkCakeUtil, 300);
+			}
+
+			function show() {
+				$('.message').addClass('messageshow');
+			}
+			function hide() {
+				$('.message').addClass('messagehide');
+			}
+			function getMessage() {
+				msg = ''; 
+				for (var i = 0; i < messages.length; i++) {
+				 	msg = msg + '<br>' + messages[i];
+				}
+				return msg;
+			}
+			function showMessages() {
+				$('.message').html(getMessage());
+				show();
+				// setTimeout(hide,4000);
+
+			}
+
+			function translateCake() {
+				$('.cakewrapper').addClass('messageEnable');
+				$('.message').addClass('col-6');
+				showMessages();
+			}
+
+			$('.butcont').on('click','.enlight',function () {
+
+				$("body").addClass('loaded');
+				$(this).addClass('music');
+				$(this).removeClass('enlight');
+				$(this).html("Start music!");
+				setInterval(start_blink,1000);
+				$(this).hide();
+				setTimeout(showbutton,5000);
+
+			});
+			$('.butcont').on('click','.music',function(){
+			$('.audio').trigger('play');
+			$(this).removeClass('music');
+			$(this).addClass('decorate');
+			$(this).html('Start decoration!');
+			$(this).hide();
+			setTimeout(showbutton,5000);
+
+		});
+
+			$('.butcont').on('click','.decorate',function(){
+			$(this).removeClass('decorate');
+			$(this).addClass('bringcake');
+			$(this).html('Let\'s bring the cake!');
+			$('.pataka').removeClass('invisible');
+			setInterval(animatePataka,600);
+			$(this).hide();
+			setTimeout(showbutton,5000);
+
+		});
+
+			$('.butcont').on('click','.bringcake',function(){
+			$(this).removeClass('bringcake');
+			$(this).addClass('lightcandles');
+			$(this).html('Let\'s light the candles!');
+			$('.cake').removeClass('invisible');
+			$(this).hide();
+			setTimeout(showbutton,5000);
+		});
+
+			$('.butcont').on('click','.lightcandles',function(){
+			$(this).removeClass('lightcandles');
+			$(this).addClass('showmessage');
+			$(this).html('Here is a message for you!');
+			$('.thiscake').attr('src','nocandle.png');
+			$(this).hide();
+			setTimeout(changeCake,500);
+			setTimeout(blinkCake, 1500);
+			setTimeout(translateCake,4000);
+		});
+
+
+
+	</script>
+</body>
+</html>

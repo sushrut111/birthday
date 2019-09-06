@@ -2,11 +2,32 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Indie+Flower">
 	<title>Simran | Happy birthday Simran!</title>
 	<style type="text/css">
 		body{
 			background-color: white;
 		}
+
+  		.messageEnable {
+				-webkit-transition: -webkit-transform 2s ease-in-out;
+				-webkit-transform:translateX(-20%);
+				-webkit-transform:translateX(20%);
+			}
+
+
+
+		@media screen and (max-width: 992px) {
+			
+  			.messageEnable {
+				-webkit-transition: -webkit-transform 2s ease-in-out;
+				-webkit-transform:translateX(0%);
+			}
+
+		}
+
+
 		body.loaded {
 			background-color: black;
 			-webkit-transition: all 3s ease-in-out;
@@ -21,12 +42,16 @@
 			-o-transform: rotate(180deg);
 			transform: rotate(180deg);
 		}
-		.messageEnable {
-			-webkit-transition: -webkit-transform 2s ease-in-out;
-			-webkit-transform:translateX(-25%);
-		}
 		.messageshow {
 			color: white;
+			font-family: 'Indie Flower', serif;
+			-webkit-transition: all 1s ease-in-out;
+			-moz-transition: all 1s ease-in-out;
+			-o-transition: all 1s ease-in-out;
+			transition: all 1s ease-in-out;
+		}
+		.cakeeshow {
+			visibility: visible;
 			-webkit-transition: all 1s ease-in-out;
 			-moz-transition: all 1s ease-in-out;
 			-o-transition: all 1s ease-in-out;
@@ -39,6 +64,7 @@
 			-o-transition: all 1s ease-in-out;
 			transition: all 1s ease-in-out;
 		}
+
 
 	</style>
 </head>
@@ -107,17 +133,17 @@
 				</div>
 
 			</div>
-			<br>
+			
 			<div class="row cake invisible">
-				<div class="col-6 mx-auto text-center cakewrapper">
-					<img src="cake.png" class="thiscake" height="300px" width="300px">  
-				</div>
-				<div class="message"></div>
+				<div class="col-lg-6 col-sm-12 mx-auto text-center cakewrapper">
+					<br><br><br><br><img src="cake.png" class="thiscake" height="300px" width="300px">  
+				</div><br><br><br>
+				<div class="message text-center text-large" style="font-size: 22px;"></div>
 			</div>
 			<nav class="navbar fixed-bottom">
 				<center></center>
 				<div class="text-center butcont">
-					<button class="btn btn-md btn-success enlight">Lights off!</button>
+					<button class="btn btn-lg btn-success enlight">Lights off!</button>
 				</div>
 				<center></center>
 
@@ -127,8 +153,10 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/floating.js"></script>
 		<script type="text/javascript">
-
+		
+					DELAY = 400;
 			colors = ['red.png','yellow.png','popti.png','orange.png','green.png','pink.png','blue.png'];
 
 			var step = 'dark';
@@ -151,7 +179,25 @@
 				'Happieeee birthdayyyyyyy!!!!!!'
 			];
 
-
+			function inflate_balloons(){
+				floating({
+				    content: '<img src="redb.png">',
+				    number: 2,
+				    direction: 'reverse',
+				    size: 10
+			  	});
+				floating({
+				    content: '<img src="yellowb.png">',
+				    number: 2,
+				    direction: 'alternate',
+				    size: 10
+			  	});
+				floating({
+				    content: '<img src="blueb.png">',
+				    number: 2,
+				    size: 10
+			  	});
+			}
 			function start_blink() {
 				var n = Math.floor((Math.random() * 100) + 1);
 				n = n%7;
@@ -215,42 +261,49 @@
 				// setTimeout(hide,4000);
 
 			}
+			function addmsgclasses(){
+				$('.message').addClass('col-lg-6');
+				$('.message').addClass('col-sm-12');
+				showMessages();
 
+			}
 			function translateCake() {
 				$('.cakewrapper').addClass('messageEnable');
-				$('.message').addClass('col-6');
-				showMessages();
+				addmsgclasses();
 			}
 
 			$('.butcont').on('click','.enlight',function () {
 
 				$("body").addClass('loaded');
-				$(this).addClass('music');
+				$(this).addClass('decorate');
 				$(this).removeClass('enlight');
-				$(this).html("Start music!");
+				$(this).html("Decorate & inflate balloons!");
 				setInterval(start_blink,1000);
 				$(this).hide();
-				setTimeout(showbutton,5000);
+				setTimeout(showbutton,DELAY);
 
 			});
 			$('.butcont').on('click','.music',function(){
+
 			$('.audio').trigger('play');
 			$(this).removeClass('music');
-			$(this).addClass('decorate');
-			$(this).html('Start decoration!');
+			$(this).addClass('bringcake');
+			$(this).html('Let\'s bring the cake!');
 			$(this).hide();
-			setTimeout(showbutton,5000);
+			setTimeout(showbutton,DELAY);
 
 		});
 
 			$('.butcont').on('click','.decorate',function(){
+			inflate_balloons();
+
 			$(this).removeClass('decorate');
-			$(this).addClass('bringcake');
-			$(this).html('Let\'s bring the cake!');
+			$(this).addClass('music');
+			$(this).html('Start music!');
 			$('.pataka').removeClass('invisible');
 			setInterval(animatePataka,600);
 			$(this).hide();
-			setTimeout(showbutton,5000);
+			setTimeout(showbutton,DELAY);
 
 		});
 
@@ -260,18 +313,19 @@
 			$(this).html('Let\'s light the candles!');
 			$('.cake').removeClass('invisible');
 			$(this).hide();
-			setTimeout(showbutton,5000);
+			setTimeout(showbutton,DELAY);
 		});
 
 			$('.butcont').on('click','.lightcandles',function(){
 			$(this).removeClass('lightcandles');
 			$(this).addClass('showmessage');
 			$(this).html('Here is a message for you!');
+			$(this).addClass('invisible');
 			$('.thiscake').attr('src','nocandle.png');
 			$(this).hide();
 			setTimeout(changeCake,500);
 			setTimeout(blinkCake, 1500);
-			setTimeout(translateCake,4000);
+			setTimeout(translateCake,2000);
 		});
 
 

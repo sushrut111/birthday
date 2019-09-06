@@ -15,6 +15,16 @@
 				-webkit-transform:translateX(-20%);
 				-webkit-transform:translateX(20%);
 			}
+		.messageshow {
+			color: white;
+			font-family: 'Indie Flower', serif;
+			font-size: 20px;
+			-webkit-transition: all 1s ease-in-out;
+			-moz-transition: all 1s ease-in-out;
+			-o-transition: all 1s ease-in-out;
+			transition: all 1s ease-in-out;
+		}
+
 
 
 
@@ -24,6 +34,16 @@
 				-webkit-transition: -webkit-transform 2s ease-in-out;
 				-webkit-transform:translateX(0%);
 			}
+			.messageshow {
+			color: white;
+			font-family: 'Indie Flower', serif;
+			font-size: 38px;
+			-webkit-transition: all 1s ease-in-out;
+			-moz-transition: all 1s ease-in-out;
+			-o-transition: all 1s ease-in-out;
+			transition: all 1s ease-in-out;
+		}
+
 
 		}
 
@@ -41,14 +61,6 @@
 			-ms-transform: rotate(180deg);
 			-o-transform: rotate(180deg);
 			transform: rotate(180deg);
-		}
-		.messageshow {
-			color: white;
-			font-family: 'Indie Flower', serif;
-			-webkit-transition: all 1s ease-in-out;
-			-moz-transition: all 1s ease-in-out;
-			-o-transition: all 1s ease-in-out;
-			transition: all 1s ease-in-out;
 		}
 		.cakeeshow {
 			visibility: visible;
@@ -138,12 +150,12 @@
 				<div class="col-lg-6 col-sm-12 mx-auto text-center cakewrapper">
 					<br><br><br><br><img src="cake.png" class="thiscake" height="300px" width="300px">  
 				</div><br><br><br>
-				<div class="message text-center text-large" style="font-size: 22px;"></div>
+				<div class="message text-center text-large"></div>
 			</div>
 			<nav class="navbar fixed-bottom">
 				<center></center>
 				<div class="text-center butcont">
-					<button class="btn btn-lg btn-success enlight">Lights off!</button>
+					<button class="btn btn-primary btn-lg btn-block enlight">Lights out!</button>
 				</div>
 				<center></center>
 
@@ -156,7 +168,7 @@
 		<script src="https://unpkg.com/floating.js"></script>
 		<script type="text/javascript">
 		
-					DELAY = 400;
+					DELAY = 3000;
 			colors = ['red.png','yellow.png','popti.png','orange.png','green.png','pink.png','blue.png'];
 
 			var step = 'dark';
@@ -172,7 +184,7 @@
 				'May you live till the end of this world',
 				'May you get all the happieness',
 				'And now',
-				'Thanks for being there in my life',
+				'Thanks for always being there',
 				'Our friendship is very important for me',
 				'You are the most precious gem in my life',
 				'May our friendship last forever!!',
@@ -258,7 +270,6 @@
 			function showMessages() {
 				$('.message').html(getMessage());
 				show();
-				// setTimeout(hide,4000);
 
 			}
 			function addmsgclasses(){
@@ -288,7 +299,7 @@
 			$('.audio').trigger('play');
 			$(this).removeClass('music');
 			$(this).addClass('bringcake');
-			$(this).html('Let\'s bring the cake!');
+			$(this).html('Okay, it\'s time for cake!');
 			$(this).hide();
 			setTimeout(showbutton,DELAY);
 
@@ -325,7 +336,7 @@
 			$(this).hide();
 			setTimeout(changeCake,500);
 			setTimeout(blinkCake, 1500);
-			setTimeout(translateCake,2000);
+			setTimeout(translateCake,1000);
 		});
 
 
